@@ -658,6 +658,8 @@ def _run_command(
         format = env.format
     if format:
         command = command.format(**env)
+        if sudo and user:
+            user = user.format(**env)
     # Set up new var so original argument can be displayed verbatim later.
     given_command = command
     # Handle context manager modifications, and shell wrapping
